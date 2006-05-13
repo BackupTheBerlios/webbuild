@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>BERG SYSTEME - WebBuild::Get Started</title>
+<style type="text/css">
+h1 { font:1.5em sans-serif; font-weight:bold;color:#008080;	}
+h2 { font:1.2em sans-serif; font-weight:bold;color:#000080; }
+.cmd { font:1.0em monospace; background-color:#EEE; border:1px solid #DDD; padding:5px; }
+.tag { font:1.0em monospace; }
+</style>
+</head>
+<body>
+<h1>Getting started with WebBuild</h1>
+<h2>System Requirements</h2>
+<p>Please not that you need a Cygwin environment on Microsoft Windows Systems, otherwise WebBuild does not
+   work. On UNIX-based operating systems it should run native if you have installed the following tools:</p>
+<ul>
+  <li>Streaming Editor sed</li>
+  <li>GNU AWK</li>
+  <li>GNU make</li>
+</ul>  
+<h2>Hint</h2> 
+<p>If you want to use WebBuild properly you have to keep to some rules concerning the internal file structure
+   of your Web project. In this example we assume that you have a project called "foobar" that is 
+   located under <i>/home/itsme/web/foobar</i>.</p>
+<h2>Extracting Package</h2>
+<p>You have downloaded the ZIP file from our server. Now put it to your projects directory, e.g. <i>/home/itsme/web/foobar</i>
+   and extract it with your common decompression program.</p>
+<p>Now there is a new folder created, named webbuild. This folder has two sub-folders system and doc. The folder doc
+   contains some HTML files with further information and helpful instructions how to handle WebBuild.</p>
+<p>System is the more important folder. This is the one which contains the main files which will build your pages
+   later on. You have to copy Makefile and <i>Makefile.rules</i> to the root directory of your project. Currently the structure
+   of your project should look like this:</p>
+<p class="cmd">   
+   /home/itsme/web/foobar<br>
+   &nbsp;&nbsp;|-webbuild<br>
+   &nbsp;&nbsp;+--system<br>
+   Makefile<br>
+   Makefile.rules<br>
+</p>    
+<h2>Creating Source Directory </h2>
+<p>The source directory (src) is the one which inherits the files with the content you want to build HTML pages from.
+   These files contain your defined patterns and the text or images you want to place into your template file.</p>
+<p>You should create the source directory named src directly under your root directory.</p>
+<h2>Creating Template File</h2>
+<p>Using WebBuild requires a template file. This file is written in HTML code and contains the pattern that you want to
+   replace with the content from the source directory. You have to place the template under the root directory.</p>
+<p>These tags look like <span class="tag">&lt;hive field="tag-name" /&gt;</span>. Replace "tag-name" with a qualified name 
+containing letters and numbers.</p>   
+<p>Now your projects directory should look like this:</p>
+<p class="cmd">   
+   /home/itsme/web/foobar<br>
+   &nbsp;&nbsp;|-src<br>
+   &nbsp;&nbsp;|-webbuild<br>
+   &nbsp;&nbsp;+--system<br>
+   Makefile<br>
+   Makefile.rules<br>
+   template.html<br>
+</p> 
+<h2>Creating Source File</h2>
+<p>As mentioned before you have to create a source file that contains the content you want to replace in the
+   HTML template. Your name the source file like the HTML file you want to create but instead you use the ending
+   *.src, e.g. index.html will be index.src.</p>
+<p>The content should look like this 
+   <span class="tag">&lt;hive field="tag-name"&gt;</span>My content, I want to replace<span class="tag">&lt;/hive&gt;
+   </span>. 
+   Save your file under the former created directory src.</p>
+<h2>Configuring the Make-System</h2>
+<p>Before you can build a HTML page you have to open and edit <i>Makefile.rules</i>. <i>Makefile.rules</i> contains two options:</p>
+<ul>
+  <li>ROOT</li>
+  <li>ADDON</li>
+</ul> 
+<p>You have to set ROOT with the global file path to your project, e.g. <i>/home/itsme/web/foobar</i>.</p>  
+<p>You have to set ADDON with the name of the WebBuild directory with the additional files. If you did not rename
+   the directory you can leave the name unchanged.</p> 
+<h2>Executing Make-System</h2>
+<p>See commands.html with a list of commands you can use. There are also additional information and tips.</p>
+<hr>
+$Id: getstarted.html,v 1.1 2006/05/13 17:28:19 rollinhand Exp $                
+</body>
+</html>
