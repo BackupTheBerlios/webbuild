@@ -1,0 +1,20 @@
+# 	***************************************************************************
+# 	*	Makefile.rules
+#	***************************************************************************
+#	* Makefile.rules inherits all important settings to create the webpages
+#	* you want. 
+#	*
+#	*	Author: Bjoern Berg, clergyman@gmx.de
+#	*	(c) Bjoern Berg, 2004, 2005, 2006
+#	*	$Id: Makefile.rules,v 1.1 2006/05/13 16:29:13 rollinhand Exp $
+#	***************************************************************************
+
+#	***************************************************************************
+# 		Verzeichnisse
+#		ROOTDIR:	The root directory containing all files for the website
+#	***************************************************************************
+
+ROOT = (ADD YOUR PATH)
+ADDON = webbuild
+
+
