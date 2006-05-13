@@ -1,0 +1,78 @@
+# 	***************************************************************************
+# 	*	Makefile.rules
+#	***************************************************************************
+#	* Makefile.rules inherits all important settings to create the webpages
+#	* you want. 
+#	*
+#	*	Author: Bjoern Berg, clergyman@gmx.de
+#	*	(c) Bjoern Berg, 2004, 2005, 2006
+#	*	$Id: Makefile.rules,v 1.1 2006/05/13 16:21:28 rollinhand Exp $
+#	***************************************************************************
+
+#	***************************************************************************
+# 		Verzeichnisse
+#		ROOTDIR:	The root directory containing all files for the website
+#	***************************************************************************
+
+ROOT = C:\Dokumente und Einstellungen\Björn\Eigene Dateien\eclipse\workspace\berg-systeme.V2
+ADDON = webbuild
+
+#	***************************************************************************
+#		Dateieinstellungen FTP
+#		Diese Einstellungen werden fr den automatisierten Upload Ihrer Dateien
+#		benï¿½igt.
+#		DIRS:		Hier tragen Sie alle Verzeichnisse ein, die beim Upload
+#					bercksichtigt werden sollen; auch Unterverzeichnisse.
+#		FTYPES:		Hier stehen alle verwendeten Dateitypen, die auf den Server
+#					bertragen werden sollen.
+#	***************************************************************************
+
+DIRS = $(PICSDIR) $(FOTODIR) fotos/preview .
+FTYPES = *.html *.js *.css *.jpg *.gif *.png
+
+#	***************************************************************************
+#		Bildeinstellungen
+#		THUMBSIZE:	Die Grï¿½e Ihrer Vorschaubilder. Das Skript, das die Bilder
+#					erzeugt, kann z.Zt. nur quadratische Vorschauen erstellen
+#	***************************************************************************
+
+THUMBSSIZE = 80
+
+#	***************************************************************************
+#		Dateieinstellungen Webseite
+#		TEMPLATE:	Legen Sie hier den Dateinamen fr Ihre Vorlage fest aus
+#					der spï¿½er alle anderen Seiten erzeugt werden.
+#		BLOCKS:		Hier kï¿½nen Sie Ihre selbstdefinierten Blï¿½ke angeben, die
+#					spï¿½er durch die Inhalte Ihrer Source-Dateien ersetzet
+#					werden sollen.
+#		SEITEN:		Geben Sie hier alle Seiten an, fr die Sie Source-Dateien
+#					haben, bzw. die Sie erzeugen mï¿½hten.
+#		ABH:		Unter ABH steht eine automatisierte Regel, die in der
+#					eigentlichen Makefile benï¿½igt wird.
+#	***************************************************************************
+
+TEMPLATE = template.html
+BLOCKS = maintext gallerie fotoindex
+
+SEITEN = index.html wohnen.html insekten.html sonne.html partner.html impressum.html \
+ kontakt.html trends.html fvh.html schlaufeng.html badeteppiche.html nwfotos.html praxis.html \
+ gallery.html gal_schlaufe.html gal_flaeche.html gal_bad.html gal_neuefotos.html gal_aerztehaus.html \
+ gal_wohnen.html gal_insekten.html gal_sonnenschutz.html videos.html video_jab.html \
+ elvo_intro.html elvo_farbwirkung.html elvo_harmonie.html farblehre.html farbpaare.html gal_elvo.html \
+ themen.html produkte.html ins_rollo.html ins_spannrahmen.html ins_tuer.html \
+ ins_drehrahmen.html ins_lichtschacht.html neher.html trends_archiv.html mozart.html gal_mozart.html
+ABH = $(SEITEN:%.html=%.src)
+
+#	***************************************************************************
+#		Benutzereinstellungen FTP-Server
+#		HOST:	Der Name bzw. die IP-Adresse des Servers mit dem Sie sich
+#				verbinden wollen.
+#		USER:	Ihr Benutzername
+#		PWD:	Ihr Passwort
+#	***************************************************************************
+
+HOST = 
+USER = 
+PWD = 
+
+
