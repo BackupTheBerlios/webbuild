@@ -17,6 +17,7 @@ h2 { font:1.2em sans-serif; font-weight:bold;color:#000080; }
 <li>make &lt;yourpage&gt;.html</li>
 <li>make &lt;yourpage&gt;.bak</li>
 <li>make drophtml</li>
+<li>make rebuild</li>
 </ul>
 <h2>make &lt;yourpage&gt;.html</h2>
 <p>This command creates a HTML page called yourpage.html. Please note, that make will fail if the appropriate
@@ -26,8 +27,12 @@ h2 { font:1.2em sans-serif; font-weight:bold;color:#000080; }
    <span class="tag">make &lt;yourpage&gt;.html</span> again, while the source file has not changed.</p>
 <h2>make drophtml</h2>
 <p>You should use this command very carefully because it deletes all HTML files in the current directory. This
-   includes also "template.html".</p>    
+   includes also "template.html".</p>  
+<h2>make rebuild</h2>
+<p>This command is a batch command. It first creates backup files of your current HTML files and then creates
+   new ones from the sources. If you have a hierarchical directory structure you have to run this command
+   in each directory.</p>     
 <hr>
-$Id: commands.html,v 1.1 2006/05/13 17:39:01 rollinhand Exp $                
+$Id: commands.html,v 1.2 2006/06/01 15:57:16 rollinhand Exp $                
 </body>
 </html>
