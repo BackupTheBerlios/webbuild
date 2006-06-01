@@ -6,12 +6,14 @@
 #	*
 #	*	Author: Bjoern Berg, clergyman@gmx.de
 #	*	(c) Bjoern Berg, 2004, 2005, 2006
-#	*	$Id: Makefile.rules,v 1.1 2006/05/13 16:29:13 rollinhand Exp $
+#	*	$Id: Makefile.rules,v 1.2 2006/06/01 15:59:39 rollinhand Exp $
 #	***************************************************************************
 
 #	***************************************************************************
 # 		Verzeichnisse
 #		ROOTDIR:	The root directory containing all files for the website
+#		ADDON:		The name of the directory with the main scripts.
+#					default: webbuild
 #	***************************************************************************
 
 ROOT = (ADD YOUR PATH)
