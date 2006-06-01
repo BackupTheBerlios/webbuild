@@ -19,13 +19,13 @@
 # 	*	$3	filename without ending
 # 	*	$4	sourcename and directory
 #	*
-#	*	$Id: page.sh,v 1.1 2006/05/13 16:16:32 rollinhand Exp $
+#	*	$Id: page.sh,v 1.2 2006/06/01 16:03:35 rollinhand Exp $
 #	***************************************************************************
 
 # 	Init variables
 _HIVETMPCONTENT=$3_`date +%Y%m%d`;
 _HIVETMPFILE=$3.html;
-_HIVETEMPLATE=template.html;
+_HIVETEMPLATE=template.tmpl;
 
 if [ -e "$2/$_HIVETMPFILE" ]; then
 	rm "$2/$_HIVETMPFILE";
