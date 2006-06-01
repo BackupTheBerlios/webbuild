@@ -16,7 +16,7 @@
 #	*	- sed / awk installiert
 #	*	- GNU make
 #	*
-#	*	$Id: Makefile,v 1.1 2006/05/13 16:29:13 rollinhand Exp $
+#	*	$Id: Makefile,v 1.2 2006/06/01 15:54:16 rollinhand Exp $
 #	***************************************************************************
 
 include Makefile.rules
@@ -46,13 +46,11 @@ drophtml:
 	@( for f in $$(ls *htm* | cut -d \. -f 1); do make $$f.bak; done; );
 
 ###############################################################################
-#	Convert umlauts	and special characters to HTML encoding
-#	This is a batch command on all HTML files in current directory
-#umlauts:
-#	@(	for i in "`ls *.htm?`"; \
-#			do echo "Converting Umlauts: $$i"; \
-#			cat "$$i" | sed -n -f "$(ROOT)/$(ADDON)/umlaut.sed" > "$$i.tmp"; \
-#			mv "$$i.tmp" "$$i"; \
-#		done; );
+#	This is a batch command to rebuild all HTML files
+rebuild:
+	@( if [ -d src ]; then \
+	   for f in $$(ls src | cut -d \. -f 1); do make $$f.bak; make $$f.html; \
+	   done; fi;); 
+	
 
 
