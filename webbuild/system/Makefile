@@ -16,7 +16,7 @@
 #	*	- sed / awk installiert
 #	*	- GNU make
 #	*
-#	*	$Id: Makefile,v 1.2 2006/06/01 15:54:16 rollinhand Exp $
+#	*	$Id: Makefile,v 1.3 2006/11/11 15:27:13 rollinhand Exp $
 #	***************************************************************************
 
 include Makefile.rules
@@ -25,7 +25,7 @@ include Makefile.rules
 #	If a HTML file already exists, you first have to drop it using the
 #	batch command 'make drophtml' or 'make yourpage.bak'
 #	Automatically convert umlauts
-%.html: src/%.src
+%.html: /webbuild/src/%.src
 	@( echo "Creating HTML.....: $@" );
 	@( "$(ROOT)/$(ADDON)/page.sh" "$(ROOT)/$(ADDON)" "`pwd`" "$*" "$<" );
 	@( echo "Converting Umlauts: $@" );
@@ -36,7 +36,7 @@ include Makefile.rules
 #	Creates a backup of a HTML file and drops it then
 %.bak: %.html 
 	@( echo "Creating Backup...: $*_`date +%Y%m%d-%H%M`.bak" );
-	@( if [ -f $< ]; then mv $< "$*_`date +%Y%m%d-%H%M`.bak"; fi; );
+	@( if [ -f $< ]; then mv $< "webbuild/bak/$*_`date +%Y%m%d-%H%M`.bak"; fi; );
 	@( echo "Erasing File......: $<" );
 	@( if [ -f $< ]; then rm $<; fi; ); 
 
@@ -51,6 +51,15 @@ rebuild:
 	@( if [ -d src ]; then \
 	   for f in $$(ls src | cut -d \. -f 1); do make $$f.bak; make $$f.html; \
 	   done; fi;); 
+	   
+###############################################################################
+#	Executes a list of available commands
+help:
+	@(	echo -e "WebBuild - Commands:\n"\
+				"make <site>.html\tCreates a single HTML file from source.\n"\
+				"make <site>.bak\tCreates a backup of a HTML file.\n"\
+				"make drophtml\t\tDeletes all HTML files in a tree.\n"\
+				"make rebuild\t\tCreates a backup and rebuilds a HTML file.\n" );	   
 	
 
 
